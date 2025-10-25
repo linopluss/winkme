@@ -8,11 +8,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a73e8;
-            --primary-dark: #1557b0;
-            --primary-light: #e8f0fe;
+            --primary: #FF6B4A;
+            --primary-dark: #e55a3a;
+            --primary-light: #fff2ef;
             --secondary: #34a853;
-            --accent: #ff6b35;
+            --accent: #FF6B4A;
             --text-primary: #202124;
             --text-secondary: #5f6368;
             --text-muted: #9aa0a6;
@@ -24,9 +24,9 @@
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            --gradient-primary: linear-gradient(135deg, #1a73e8 0%, #4285f4 100%);
+            --gradient-primary: linear-gradient(135deg, #FF6B4A 0%, #ff8a65 100%);
             --gradient-secondary: linear-gradient(135deg, #34a853 0%, #66bb6a 100%);
-            --gradient-accent: linear-gradient(135deg, #ff6b35 0%, #ff8a65 100%);
+            --gradient-accent: linear-gradient(135deg, #FF6B4A 0%, #ff8a65 100%);
         }
 
         * {
@@ -130,7 +130,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e8f0fe 100%);
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff2ef 100%);
             position: relative;
             overflow: hidden;
         }
@@ -142,7 +142,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e8f0fe" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23fff2ef" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
             opacity: 0.3;
         }
 
@@ -244,6 +244,7 @@
         }
 
         .btn-primary:hover {
+            background: var(--primary-dark);
             transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
         }
@@ -412,7 +413,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="60" rx="8" fill="white" opacity="0.9"/><rect x="20" y="20" width="60" height="8" rx="4" fill="%231a73e8" opacity="0.8"/><rect x="20" y="35" width="40" height="6" rx="3" fill="%231a73e8" opacity="0.6"/><rect x="20" y="45" width="50" height="6" rx="3" fill="%231a73e8" opacity="0.4"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="60" rx="8" fill="white" opacity="0.9"/><rect x="20" y="20" width="60" height="8" rx="4" fill="%23FF6B4A" opacity="0.8"/><rect x="20" y="35" width="40" height="6" rx="3" fill="%23FF6B4A" opacity="0.6"/><rect x="20" y="45" width="50" height="6" rx="3" fill="%23FF6B4A" opacity="0.4"/></svg>');
         }
 
         .feature-content {
@@ -491,7 +492,7 @@
             border-radius: 24px;
             padding: 40px;
             box-shadow: var(--shadow-md);
-            border: 1px solid var(--border);
+            border: 1px solid rgba(255, 107, 74, 0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -603,7 +604,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23FF6B4A" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
         }
 
         .contact-content {
@@ -858,15 +859,15 @@
                         <div style="font-size: 12px; color: var(--text-secondary);">平台内精准报名入口</div>
                     </div>
                     <div class="floating-card">
-                        <div style="font-size: 14px; font-weight: 600; color: var(--secondary); margin-bottom: 8px;">区域独家认证</div>
+                        <div style="font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 8px;">区域独家认证</div>
                         <div style="font-size: 12px; color: var(--text-secondary);">每区仅1个官方认证</div>
                     </div>
                     <div class="floating-card">
-                        <div style="font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">成长激励</div>
+                        <div style="font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 8px;">成长激励</div>
                         <div style="font-size: 12px; color: var(--text-secondary);">与平台共成长</div>
                     </div>
                     <div class="floating-card">
-                        <div style="font-size: 14px; font-weight: 600; color: var(--secondary); margin-bottom: 8px;">独立小站</div>
+                        <div style="font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 8px;">独立小站</div>
                         <div style="font-size: 12px; color: var(--text-secondary);">个人品牌展示</div>
                     </div>
                 </div>
