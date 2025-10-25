@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winkme 合作伙伴招募 — 活动主理人计划</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B4A;
+            --primary-dark: #e55a3a;
+            --primary-light: #fff2ef;
+            --secondary: #34a853;
+            --accent: #FF6B4A;
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --text-muted: #9aa0a6;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-dark: #1a1a1a;
+            --border: #dadce0;
+            --shadow-sm: 0 1px 2px 0 rgba(60, 64, 67, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, #FF6B4A 0%, #ff8a65 100%);
+            --gradient-secondary: linear-gradient(135deg, #34a853 0%, #66bb6a 100%);
+            --gradient-accent: linear-gradient(135deg, #FF6B4A 0%, #ff8a65 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* 英雄区域 */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff2ef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23fff2ef" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 24px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            background: var(--gradient-primary);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.3"/><circle cx="80" cy="40" r="3" fill="white" opacity="0.2"/><circle cx="40" cy="80" r="1.5" fill="white" opacity="0.4"/><circle cx="70" cy="70" r="2.5" fill="white" opacity="0.3"/></svg>');
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-card:nth-child(1) {
+            top: 20px;
+            right: 20px;
+            animation-delay: 0s;
+        }
+
+        .floating-card:nth-child(2) {
+            bottom: 20px;
+            left: 20px;
+            animation-delay: 1s;
+        }
+
+        .floating-card:nth-child(3) {
+            top: 50%;
+            right: -20px;
+            animation-delay: 2s;
+        }
+
+        .floating-card:nth-child(4) {
+            bottom: 20px;
+            right: 20px;
+            animation-delay: 3s;
+        }
+
+        /* 特性区域 */
+        .features {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            gap: 80px;
+        }
+
+        .feature-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .feature-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .feature-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .feature-visual {
+            position: relative;
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 24px;
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="60" rx="8" fill="white" opacity="0.9"/><rect x="20" y="20" width="60" height="8" rx="4" fill="%23FF6B4A" opacity="0.8"/><rect x="20" y="35" width="40" height="6" rx="3" fill="%23FF6B4A" opacity="0.6"/><rect x="20" y="45" width="50" height="6" rx="3" fill="%23FF6B4A" opacity="0.4"/></svg>');
+        }
+
+        .feature-content {
+            padding: 40px 0;
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        .feature-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* 合作伙伴等级 */
+        .partnership-tiers {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 80px;
+        }
+
+        .tier-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255, 107, 74, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .tier-card.featured {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+
+        .tier-card.featured::before {
+            content: '推荐';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .tier-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+
+        .tier-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .tier-description {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .tier-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .tier-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .tier-features li::before {
+            content: '✓';
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .tier-price {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .tier-price-note {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        /* 联系方式 */
+        .contact {
+            padding: 120px 0;
+            background: var(--bg-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23FF6B4A" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .contact-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 60px;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .contact-method {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            margin: 0 auto 24px;
+        }
+
+        .contact-method-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .contact-method-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 24px;
+        }
+
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 16px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .email-contact {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .email-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* 动画 */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .feature-item {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .feature-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .tiers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 滚动动画 */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">W</div>
+                <span>Winkme</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">合作亮点</a></li>
+                <li><a href="#tiers">合作等级</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">立即合作</a>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    合作伙伴招募计划
+                </div>
+                <h1 class="hero-title">活动主理人计划</h1>
+                <p class="hero-subtitle">
+                    如果你已经在小红书、Instagram、或本地社群组织单身徒步、聚餐、骑行、露营、羽毛球、登山等活动，加入 Winkme 即可获得稳定会员引流、独家区域认证、平台内报名与收款支持。
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">0%</div>
+                        <div class="stat-label">前100场扣点</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">独立</div>
+                        <div class="stat-label">组织小站页</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10%</div>
+                        <div class="stat-label">核心伙伴分成</div>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#contact" class="btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        立即申请合作
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        <i class="fas fa-play"></i>
+                        了解更多
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <div class="floating-card">
+                        <div style="font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 8px;">稳定会员引流</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">平台内精准报名入口</div>
+                    </div>
+                    <div class="floating-card">
+                        <div style="font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 8px;">区域独家认证</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">每区仅1个官方认证</div>
+                    </div>
+                    <div class="floating-card">
+                        <div style="font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 8px;">成长激励</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">与平台共成长</div>
+                    </div>
+                    <div class="floating-card">
+                        <div style="font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 8px;">独立小站</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">个人品牌展示</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作亮点 -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-badge">
+                    <i class="fas fa-gem"></i>
+                    合作亮点
+                </div>
+                <h2 class="section-title">你将得到什么</h2>
+                <p class="section-subtitle">对 UP 主 & 活动主理人的专属权益</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-visual">
+                        <div class="feature-image"></div>
+                    </div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="feature-title">稳定会员引流</h3>
+                        <p class="feature-description">
+                            Winkme 为你提供平台内精准会员报名入口，会员报名信息直接可跟进，不存在平台封帖风险。
+                        </p>
+                        <ul class="feature-list">
+                            <li>平台内精准报名入口</li>
+                            <li>会员信息直接跟进</li>
+                            <li>无封帖风险保障</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-visual">
+                        <div class="feature-image"></div>
+                    </div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="feature-title">区域独家认证</h3>
+                        <p class="feature-description">
+                            我们按城市/区域与活动类型分配认证名额，确保每个区域同一类活动最多仅 1 个官方认证主理人，享受独家推广与站内优先展示。
+                        </p>
+                        <ul class="feature-list">
+                            <li>区域独家代理权</li>
+                            <li>站内优先展示</li>
+                            <li>独家推广资源</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-visual">
+                        <div class="feature-image"></div>
+                    </div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="feature-title">免费上线与收款工具</h3>
+                        <p class="feature-description">
+                            前 100 场活动免平台扣点；平台提供报名页、票务管理、线上支付与发票支持，让你专注活动内容与社群经营。
+                        </p>
+                        <ul class="feature-list">
+                            <li>前100场0%扣点</li>
+                            <li>完整票务管理系统</li>
+                            <li>线上支付与发票支持</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-visual">
+                        <div class="feature-image"></div>
+                    </div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="feature-title">成长激励与分成</h3>
+                        <p class="feature-description">
+                            100 场后升级核心合作伙伴，平台收取 10% 分成；>200 场可竞逐大区合作伙伴（唯一），享 2% 管理提成与额外资源支持。
+                        </p>
+                        <ul class="feature-list">
+                            <li>核心伙伴10%分成</li>
+                            <li>大区伙伴2%管理提成</li>
+                            <li>额外资源支持</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-visual">
+                        <div class="feature-image"></div>
+                    </div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="feature-title">独立组织小站页</h3>
+                        <p class="feature-description">
+                            我们会为组织创建独立的小组页面，以彰显活动主理人的个人品牌IP。在组织小站页会展示当前正在进行的活动，以及活动回顾、组织的活动总数、参与活动的人次等信息。
+                        </p>
+                        <ul class="feature-list">
+                            <li>专属个人品牌展示页面</li>
+                            <li>实时活动状态展示</li>
+                            <li>活动回顾与历史记录</li>
+                            <li>组织数据统计面板</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作等级 -->
+    <section class="partnership-tiers" id="tiers">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-badge">
+                    <i class="fas fa-trophy"></i>
+                    合作等级
+                </div>
+                <h2 class="section-title">分级透明 · 与 Winkme 共成长</h2>
+                <p class="section-subtitle">三个等级，透明分成，与平台共同成长</p>
+            </div>
+
+            <div class="tiers-grid">
+                <div class="tier-card animate-on-scroll">
+                    <div class="tier-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3 class="tier-title">入驻合伙人</h3>
+                    <p class="tier-description">Up 主 / 主理人入门级合作</p>
+                    <ul class="tier-features">
+                        <li>平台入驻、个人主页、活动报名页与在线收款</li>
+                        <li>前 100 场活动：0% 平台扣点，全额到账</li>
+                        <li>获得基础站内曝光与会员通知渠道</li>
+                    </ul>
+                    <div class="tier-price">0%</div>
+                    <div class="tier-price-note">前100场活动</div>
+                </div>
+
+                <div class="tier-card featured animate-on-scroll">
+                    <div class="tier-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="tier-title">核心合作伙伴</h3>
+                    <p class="tier-description">>100 场活动经验</p>
+                    <ul class="tier-features">
+                        <li>升级为核心合作伙伴，适用平台标准分成 10%</li>
+                        <li>优先获得平台流量扶持、联合品牌活动与付费推广资源</li>
+                        <li>可获得运营培训、活动策划模板与票务优化建议</li>
+                    </ul>
+                    <div class="tier-price">10%</div>
+                    <div class="tier-price-note">第101-200场</div>
+                </div>
+
+                <div class="tier-card animate-on-scroll">
+                    <div class="tier-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="tier-title">大区合作伙伴</h3>
+                    <p class="tier-description">>200 场 · 每区仅 1 个</p>
+                    <ul class="tier-features">
+                        <li>区域独家代理权（例如：墨尔本东南区 · Coffee Chat 主理人）</li>
+                        <li>享受平台管理提成 2%（来自该区域其他主理人活动收入）</li>
+                        <li>专属品牌资源包、线下活动优先场地对接与定制化运营支持</li>
+                    </ul>
+                    <div class="tier-price">2%</div>
+                    <div class="tier-price-note">管理提成</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="contact-title animate-on-scroll">立即联系我们</h2>
+                <p class="contact-subtitle animate-on-scroll">扫码添加微信或WhatsApp，开启合作之旅</p>
+
+                <div class="contact-methods">
+                    <div class="contact-method animate-on-scroll">
+                        <div class="contact-icon">
+                            <i class="fab fa-weixin"></i>
+                        </div>
+                        <h3 class="contact-method-title">微信联系</h3>
+                        <p class="contact-method-description">扫码添加微信，一对一沟通合作详情</p>
+                        <div class="qr-code">
+                            <div>
+                                微信二维码<br>
+                                <small>占位符</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-method animate-on-scroll">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3 class="contact-method-title">WhatsApp</h3>
+                        <p class="contact-method-description">国际用户可通过WhatsApp联系我们</p>
+                        <div class="qr-code">
+                            <div>
+                                WhatsApp<br>
+                                二维码占位符
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="email-contact animate-on-scroll">
+                    <div class="email-text">合作邮箱：winkme@126.com</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有需要动画的元素
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 添加鼠标跟随效果
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.cursor');
+            if (!cursor) {
+                const newCursor = document.createElement('div');
+                newCursor.className = 'cursor';
+                newCursor.style.cssText = `
+                    position: fixed;
+                    width: 20px;
+                    height: 20px;
+                    background: var(--primary);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    opacity: 0.3;
+                    transition: transform 0.1s ease;
+                `;
+                document.body.appendChild(newCursor);
+            }
+            
+            const cursorElement = document.querySelector('.cursor');
+            cursorElement.style.left = e.clientX - 10 + 'px';
+            cursorElement.style.top = e.clientY - 10 + 'px';
+        });
+
+        // 添加页面加载动画
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
